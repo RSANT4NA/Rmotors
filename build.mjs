@@ -24,7 +24,8 @@ const items = S.map((s, i) => ({
   id: 'ex' + i, exemplo: true, ...s, obs: '', fotos: [],
   createdAt: BUILD_TS - i * 3600e3, updatedAt: BUILD_TS,
 }));
-const data = { v: 1, items };
+const dataFile = dir + 'estoque.json';
+const data = fs.existsSync(dataFile) ? JSON.parse(fs.readFileSync(dataFile, 'utf8')) : { v: 1, items };
 
 // Quine: a página guarda [PRE, MID, POST] e remonta a si mesma com novos dados.
 const PRE =
@@ -46,5 +47,15 @@ const buildContent = (d) => TPL[0] + JSON.stringify(d).replace(/</g, '\\u003c') 
 
 const page = buildContent(data);
 fs.writeFileSync(dir + 'page.html', page);
-fs.writeFileSync(dir + 'data0.json', JSON.stringify(data));
+
+// Versão para hospedagem estática (GitHub Pages): documento HTML completo.
+const shell = (c) =>
+  '<!doctype html>\n<html lang="pt-BR">\n<head>\n<meta charset="utf-8">\n' +
+  '<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">\n' +
+  '<meta name="description" content="Estoque da R Motors: veículos à venda e tabela de repasse. Atendimento pelo WhatsApp (48) 99958-3069.">\n' +
+  '<meta name="theme-color" content="#0f1110">\n' +
+  '<link rel="icon" type="image/webp" href="data:image/webp;base64,' + logo + '">\n' +
+  '<style>:root{color-scheme:light;padding-block:env(safe-area-inset-top,0px) env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>\n' +
+  '</head>\n<body>\n' + c + '\n</body>\n</html>\n';
+fs.writeFileSync(dir + 'index.html', shell(page));
 console.log('page.html', (page.length / 1024).toFixed(1) + ' KB');

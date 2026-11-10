@@ -13,7 +13,7 @@
   var DATA;
   try { DATA = JSON.parse(document.getElementById('estoque-data').textContent); } catch (e) { DATA = { v: 1, items: [] }; }
 
-  var state = { tab: 'venda', q: '', status: 'ativos', sort: 'recent', view: 'grid', items: DATA.items || [], canWrite: false, photoIdx: 0, openId: null };
+  var state = { tab: 'venda', q: '', status: 'ativos', sort: 'recent', view: 'grid', items: DATA.items || [], canWrite: false, photoIdx: 0, openId: null, lastMod: 0 };
   var artifact = null;
   var cur = null;
   var draft = { fotos: [] };
@@ -185,7 +185,8 @@
     $('st-disp').textContent = fmtNum.format(state.items.filter(function (i) { return i.status === 'disponivel'; }).length);
     var last = 0;
     state.items.forEach(function (i) { var t = i.updatedAt || i.createdAt || 0; if (t > last) last = t; });
-    $('st-date').textContent = last ? dateTxt(last) : '—';
+    var shown = state.lastMod || last;
+    $('st-date').textContent = shown ? dateTxt(shown) : '—';
 
     renderAdmin();
 
@@ -515,6 +516,22 @@
   route();
   render();
   try { var fl = sessionStorage.getItem('rm-flash'); if (fl) { sessionStorage.removeItem('rm-flash'); toast(fl); } } catch (e) {}
+
+  /* Hospedagem estática (GitHub Pages): lê o estoque do arquivo estoque.json */
+  (function loadStatic() {
+    if (window.claude && window.claude.use) return;
+    if (!/^https?:$/.test(location.protocol)) return;
+    fetch('estoque.json', { cache: 'no-cache' }).then(function (r) {
+      if (!r.ok) throw new Error('http ' + r.status);
+      var lm = Date.parse(r.headers.get('last-modified') || '');
+      return r.json().then(function (j) { return { j: j, lm: lm }; });
+    }).then(function (o) {
+      if (!o.j || !Array.isArray(o.j.items)) return;
+      state.items = o.j.items;
+      state.lastMod = isNaN(o.lm) ? 0 : o.lm;
+      render();
+    }).catch(function () {});
+  })();
 
   (async function init() {
     try {
