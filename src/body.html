@@ -1,0 +1,160 @@
+<a class="skip" href="#estoque">Ir para o estoque</a>
+<svg class="symbol-bank" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+<symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
+<symbol id="i-car" viewBox="0 0 24 24"><path d="m5 9 2-5h10l2 5M3 11l2-2h14l2 2v7H3zM6 13h2m8 0h2M5 18v2m14-2v2"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></symbol>
+<symbol id="i-list" viewBox="0 0 24 24"><path d="M8 5h13M8 12h13M8 19h13M3 5h.1M3 12h.1M3 19h.1"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+<symbol id="i-tag" viewBox="0 0 24 24"><path d="M3 12V4a1 1 0 0 1 1-1h8l9 9-9 9z"/><circle cx="8" cy="8" r="1.3"/></symbol>
+<symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4m8-4v4"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 13a9 9 0 0 1-10-10A9 9 0 1 0 21 13Z"/></symbol>
+<symbol id="i-edit" viewBox="0 0 24 24"><path d="m15 5 4 4M4 20l5-1L21 7a2.8 2.8 0 0 0-4-4L5 15z"/></symbol>
+<symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+<symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-8l-5 4v-4H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/><path d="M8 10h8M8 13h5"/></symbol>
+<symbol id="i-insta" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.3 6.7h.01"/></symbol>
+<symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1Z"/></symbol>
+<symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></symbol>
+</defs></svg>
+
+<header class="site-header" id="topo">
+  <div class="hdr-in">
+    <a class="brand" href="#topo" aria-label="R Motors, início">
+      <span class="logo-mark" role="img" aria-label="Logo R Motors"></span>
+      <span class="brand-text"><span class="brand-name">R Motors</span><span class="brand-caption">Veículos selecionados</span></span>
+    </a>
+    <nav class="main-nav" aria-label="Seções do site">
+      <button type="button" data-go="venda">Veículos à venda</button>
+      <button type="button" data-go="repasse">Repasse</button>
+      <a href="#contato">Contato</a>
+    </nav>
+    <div class="hdr-actions">
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Ativar tema claro" title="Ativar tema claro"><svg class="icon" aria-hidden="true"><use href="#i-sun"/></svg></button>
+      <a class="btn primary small" id="hdr-wa" href="#" target="_blank" rel="noopener" aria-label="Chamar no WhatsApp"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg><span>WhatsApp</span></a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="admin-bar" id="admin-bar" aria-label="Edição do estoque" hidden>
+    <div class="ab-text" id="ab-text"></div>
+    <div class="ab-actions">
+      <button class="btn primary small" id="new" type="button"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg>Novo veículo</button>
+      <button class="btn ghost small" id="rm-ex" type="button" hidden>Remover exemplos</button>
+    </div>
+  </section>
+
+  <section class="hero" aria-label="Apresentação" id="inicio">
+    <div class="hero-copy">
+      <div class="eyebrow">R Motors · Estoque online</div>
+      <h1>Carros selecionados, <em>negócio direto.</em></h1>
+      <p>Veja os veículos à venda e a tabela de repasse sempre atualizada. Encontrou o carro certo? Chame a gente no WhatsApp.</p>
+      <div class="hero-cta">
+        <a class="btn primary" id="hero-wa" href="#" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg>Chamar no WhatsApp</a>
+        <a class="text-link" href="#estoque">Ver o estoque<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true"><span class="hero-glow"></span><span class="logo-mark hero-logo"></span></div>
+  </section>
+
+  <section class="stats" aria-label="Resumo do estoque">
+    <div class="stat"><div class="stat-label">À venda<svg class="icon" aria-hidden="true"><use href="#i-car"/></svg></div><div class="stat-number" id="st-venda">—</div><div class="stat-note">Veículos em estoque</div></div>
+    <div class="stat"><div class="stat-label">Em repasse<svg class="icon" aria-hidden="true"><use href="#i-tag"/></svg></div><div class="stat-number" id="st-repasse">—</div><div class="stat-note">Na tabela de repasse</div></div>
+    <div class="stat"><div class="stat-label">Disponíveis agora<svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></div><div class="stat-number" id="st-disp">—</div><div class="stat-note">Prontos para negociar</div></div>
+    <div class="stat"><div class="stat-label">Última atualização<svg class="icon" aria-hidden="true"><use href="#i-cal"/></svg></div><div class="stat-number date" id="st-date">—</div><div class="stat-note">Preços e situação</div></div>
+  </section>
+
+  <section id="estoque" aria-labelledby="estoque-title">
+    <div class="sec-head"><div class="eyebrow">Estoque</div><h2 id="estoque-title">Escolha o seu próximo carro</h2><p>Toque em um veículo para ver os detalhes e falar direto com a gente.</p></div>
+    <div class="tabs" role="tablist" aria-label="Listas do estoque">
+      <button class="tab" role="tab" id="tab-venda" data-tab="venda" aria-selected="true" aria-controls="list">Veículos à venda <span class="n" id="n-venda">0</span></button>
+      <button class="tab" role="tab" id="tab-repasse" data-tab="repasse" aria-selected="false" aria-controls="list">Repasse <span class="n" id="n-repasse">0</span></button>
+    </div>
+    <div class="tools">
+      <div class="search-wrap"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg><input class="search" id="q" type="search" placeholder="Busque por marca, modelo, cor ou placa" aria-label="Buscar veículo" autocomplete="off"></div>
+      <select id="fstatus" aria-label="Filtrar por situação"><option value="ativos">Disponíveis e reservados</option><option value="disponivel">Só disponíveis</option><option value="reservado">Só reservados</option><option value="vendido">Vendidos</option></select>
+      <select id="sort" aria-label="Ordenar veículos"><option value="recent">Mais recentes</option><option value="price-asc">Menor preço</option><option value="price-desc">Maior preço</option><option value="year">Ano mais novo</option></select>
+      <div class="view-controls" id="view-controls" role="group" aria-label="Visualização"><button class="view-btn" id="view-grid" type="button" aria-label="Visualização em grade" aria-pressed="true" title="Grade"><svg class="icon" aria-hidden="true"><use href="#i-grid"/></svg></button><button class="view-btn" id="view-list" type="button" aria-label="Visualização em lista" aria-pressed="false" title="Lista"><svg class="icon" aria-hidden="true"><use href="#i-list"/></svg></button></div>
+    </div>
+    <p class="summary" id="summary" aria-live="polite"></p>
+    <div id="list" role="tabpanel" aria-labelledby="tab-venda" tabindex="0"></div>
+  </section>
+
+  <section class="contact" id="contato" aria-labelledby="contato-title">
+    <div><div class="eyebrow">Contato</div><h2 id="contato-title">Fale com a R Motors</h2><p>Atendimento direto com a nossa equipe. Conte qual carro você viu no site e a gente responde com valores, fotos e condições.</p></div>
+    <div class="contact-list">
+      <div class="c-row">
+        <span class="c-ico"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg></span>
+        <div class="c-info"><div class="c-label">WhatsApp e telefone</div><div class="c-value" id="phone-text">(48) 99958-3069</div></div>
+        <div class="c-act"><a class="btn primary small" id="ct-wa" href="#" target="_blank" rel="noopener">Abrir conversa</a><button class="btn small" id="copy-phone" type="button"><svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg>Copiar</button></div>
+      </div>
+      <div class="c-row">
+        <span class="c-ico"><svg class="icon" aria-hidden="true"><use href="#i-insta"/></svg></span>
+        <div class="c-info"><div class="c-label">Instagram</div><div class="c-value">@rmotorsbr</div></div>
+        <div class="c-act"><a class="btn small" href="https://www.instagram.com/rmotorsbr/" target="_blank" rel="noopener">Ver perfil</a></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="page-footer">
+    <span class="brand"><span class="logo-mark" role="img" aria-label="Logo R Motors"></span><span class="brand-name" style="font-size:15px">R Motors</span></span>
+    <p>Preços e disponibilidade podem mudar sem aviso. Confirme pelo WhatsApp antes de ir até a loja.</p>
+    <span>© 2026 R Motors · <a href="https://www.instagram.com/rmotorsbr/" target="_blank" rel="noopener">@rmotorsbr</a></span>
+  </footer>
+</main>
+
+<a class="btn primary fab" id="fab-wa" href="#" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg><span>Chamar no WhatsApp</span></a>
+
+<div class="overlay" id="ov-detail" hidden>
+  <div class="panel detail" id="detail" role="dialog" aria-modal="true" aria-labelledby="d-title"></div>
+</div>
+
+<div class="overlay" id="overlay" hidden>
+  <form class="panel" id="form" role="dialog" aria-modal="true" aria-labelledby="dlg-title" novalidate>
+    <div class="panel-head">
+      <h2 id="dlg-title">Novo veículo</h2>
+      <button type="button" class="btn ghost small" id="x">Fechar</button>
+    </div>
+    <fieldset class="seg">
+      <legend class="sr">Tipo de lista</legend>
+      <label><input type="radio" name="tipo" id="f-tipo-venda" value="venda"><span>Venda</span></label>
+      <label><input type="radio" name="tipo" id="f-tipo-repasse" value="repasse"><span>Repasse</span></label>
+    </fieldset>
+    <div class="fields">
+      <label><span class="lbl">Marca *</span><input type="text" id="f-marca" placeholder="Volkswagen" autocomplete="off"></label>
+      <label><span class="lbl">Modelo *</span><input type="text" id="f-modelo" placeholder="T-Cross" autocomplete="off"></label>
+      <label class="span2"><span class="lbl">Versão</span><input type="text" id="f-versao" placeholder="250 TSI Highline" autocomplete="off"></label>
+      <label><span class="lbl">Ano *</span><input type="number" id="f-ano" inputmode="numeric" placeholder="2022" min="1950" max="2100"></label>
+      <label><span class="lbl">Quilometragem</span><input type="number" id="f-km" inputmode="numeric" placeholder="38500" min="0"></label>
+      <label><span class="lbl">Cor</span><input type="text" id="f-cor" placeholder="Cinza" autocomplete="off"></label>
+      <label><span class="lbl">Câmbio</span><select id="f-cambio"><option value="">Não informar</option><option>Manual</option><option>Automático</option><option>CVT</option><option>Automatizado</option></select></label>
+      <label><span class="lbl">Combustível</span><select id="f-comb"><option value="">Não informar</option><option>Flex</option><option>Gasolina</option><option>Etanol</option><option>Diesel</option><option>Híbrido</option><option>Elétrico</option></select></label>
+      <label><span class="lbl">Placa (pode ser só o final)</span><input type="text" id="f-placa" maxlength="8" placeholder="RTE2H47" autocomplete="off"></label>
+      <label><span class="lbl" id="l-preco">Preço de venda (R$) *</span><input type="number" id="f-preco" inputmode="numeric" placeholder="124900" min="0" step="100"></label>
+      <label id="w-fipe"><span class="lbl">Tabela FIPE (R$)</span><input type="number" id="f-fipe" inputmode="numeric" placeholder="130000" min="0" step="100"></label>
+      <label><span class="lbl">Situação</span><select id="f-status"><option value="disponivel">Disponível</option><option value="reservado">Reservado</option><option value="vendido">Vendido</option></select></label>
+      <label class="span2"><span class="lbl">Observações</span><textarea id="f-obs" placeholder="Único dono, revisões em dia…"></textarea></label>
+    </div>
+    <div>
+      <span class="lbl">Fotos (opcional, até 6)</span>
+      <div class="photos-grid" id="photos-grid" style="margin-top:8px"></div>
+      <div class="actions" style="border:0;padding-top:12px">
+        <button type="button" class="btn small" id="foto-pick">Adicionar fotos</button>
+        <input type="file" id="f-foto" accept="image/*" multiple hidden>
+        <p class="hint" style="flex:1 1 220px">A primeira foto é a capa. Use “Capa” para trocar. O carro aparece normalmente sem foto.</p>
+      </div>
+    </div>
+    <p class="err" id="err" role="alert" hidden></p>
+    <div class="actions">
+      <button type="button" class="btn danger" id="del" hidden>Excluir veículo</button>
+      <span class="grow"></span>
+      <button type="button" class="btn" id="cancel">Cancelar</button>
+      <button type="submit" class="btn primary" id="save">Salvar e publicar</button>
+    </div>
+  </form>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
